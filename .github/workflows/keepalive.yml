@@ -23,8 +23,11 @@ jobs:
             echo "js/config.js is not filled in yet. Skipping."
             exit 0
           fi
+          # New-style publishable keys (sb_publishable_...) go in the apikey header only
+          AUTH=()
+          if [[ "$KEY" != sb_* ]]; then AUTH=(-H "Authorization: Bearer $KEY"); fi
           STATUS=$(curl -s -o /dev/null -w "%{http_code}" \
-            -H "apikey: $KEY" -H "Authorization: Bearer $KEY" \
+            -H "apikey: $KEY" "${AUTH[@]}" \
             "$URL/rest/v1/services?select=id&limit=1")
           echo "Supabase responded: $STATUS"
           if [[ "$STATUS" != 2* ]]; then
