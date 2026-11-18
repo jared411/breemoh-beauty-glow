@@ -15,7 +15,8 @@
   <h2 style="margin-bottom:6px">Admin Login</h2>
   <p style="color:var(--muted);font-size:.9rem">Bremoh Beauty Glow</p>
   <form id="login-form">
-    <label for="l-pass">Password</label><input id="l-pass" type="password" required autocomplete="current-password">
+    <label for="l-email">Email</label><input id="l-email" type="email" required>
+    <label for="l-pass">Password</label><input id="l-pass" type="password" required>
     <button class="btn" style="width:100%;margin-top:18px">Sign in</button>
     <div id="login-msg" class="msg"></div>
   </form>
@@ -136,6 +137,7 @@
   </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script src="js/config.js"></script>
 <script src="js/admin.js"></script>
 </body>
