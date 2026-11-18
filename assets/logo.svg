@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Bremoh Beauty Glow logo">
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e0407f"/>
+      <stop offset="1" stop-color="#8e1245"/>
+    </linearGradient>
+  </defs>
+  <circle cx="32" cy="32" r="30" fill="url(#g)"/>
+  <circle cx="32" cy="32" r="26" fill="none" stroke="#c9a24b" stroke-width="1.5"/>
+  <text x="32" y="43" text-anchor="middle" font-family="Georgia, 'Playfair Display', serif" font-size="30" font-weight="700" fill="#fff">B</text>
+  <path d="M47 11 L49 17 L55 19 L49 21 L47 27 L45 21 L39 19 L45 17 Z" fill="#c9a24b"/>
+</svg>

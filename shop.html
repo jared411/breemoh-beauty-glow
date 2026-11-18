@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Shop | Bremoh Beauty Glow</title>
+<meta name="description" content="Shop skincare and beauty products from Bremoh Beauty Glow.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<meta name="theme-color" content="#c2185b">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="container">
+    <a href="index.html" class="logo"><img src="assets/logo.svg" alt="" width="36" height="36">Bremoh <span>Beauty Glow</span></a>
+    <nav>
+      <a href="index.html#services">Services</a>
+      <a href="index.html#book">Book</a>
+      <button id="cart-open" class="btn small" type="button">Cart (<span id="cart-count">0</span>)</button>
+    </nav>
+  </div>
+</header>
+
+<section>
+  <div class="container">
+    <h1 class="section-title">Our Products</h1>
+    <p class="section-sub">Skincare and beauty essentials, picked by our team</p>
+    <div id="products-grid" class="grid"><p class="section-sub">Loading products...</p></div>
+  </div>
+</section>
+
+<div id="cart-overlay" class="overlay hidden"></div>
+<aside id="cart" class="drawer hidden" aria-label="Shopping cart">
+  <div class="drawer-head">
+    <h3>Your Cart</h3>
+    <button id="cart-close" class="btn small outline" type="button">Close</button>
+  </div>
+  <div id="cart-items"></div>
+  <div class="cart-total">Total: <strong id="cart-total">0</strong></div>
+  <form id="checkout-form">
+    <label for="c-name">Full name</label><input id="c-name" required maxlength="80">
+    <label for="c-phone">Phone / WhatsApp</label><input id="c-phone" type="tel" required maxlength="20">
+    <label for="c-email">Email (optional)</label><input id="c-email" type="email" maxlength="120">
+    <label for="c-address">Delivery address</label><textarea id="c-address" rows="2" required maxlength="300"></textarea>
+    <button class="btn" type="submit" style="width:100%;margin-top:16px">Place Order</button>
+    <p style="font-size:.8rem;color:var(--muted);margin-top:8px">We'll contact you to confirm payment and delivery.</p>
+    <div id="checkout-msg" class="msg"></div>
+  </form>
+</div>
+
+<footer><div class="container">&copy; <span id="yr"></span> Bremoh Beauty Glow. All rights reserved.</div></footer>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/config.js"></script>
+<script src="js/shop.js"></script>
+</body>
+</html>

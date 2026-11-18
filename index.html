@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Bremoh Beauty Glow | Book Your Glow</title>
+<meta name="description" content="Bremoh Beauty Glow - facials, makeup, nails and hair. Book your appointment online.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+<meta name="theme-color" content="#c2185b">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header class="nav">
+  <div class="container">
+    <a href="#" class="logo"><img src="assets/logo.svg" alt="" width="36" height="36">Bremoh <span>Beauty Glow</span></a>
+    <nav>
+      <a href="#services">Services</a>
+      <a href="shop.html">Shop</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#contact">Contact</a>
+      <a href="#book" class="btn small">Book Now</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container">
+    <h1>Glow Like Never Before</h1>
+    <p>Premium beauty care tailored to you. Choose a service, pick a time, and we'll take care of the rest.</p>
+    <div class="actions">
+      <a href="#book" class="btn">Book an Appointment</a>
+      <a href="#services" class="btn outline">View Services</a>
+      <a href="shop.html" class="btn outline">Shop Products</a>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="container">
+    <h2 class="section-title">Our Services</h2>
+    <p class="section-sub">Treatments designed to make you feel beautiful</p>
+    <div id="services-grid" class="grid"><p class="section-sub">Loading services...</p></div>
+  </div>
+</section>
+
+<section id="gallery" class="alt">
+  <div class="container">
+    <h2 class="section-title">Our Work</h2>
+    <p class="section-sub">A glimpse of the Bremoh glow</p>
+    <div id="gallery-grid" class="gallery"></div>
+  </div>
+</section>
+
+<section id="book">
+  <div class="container">
+    <h2 class="section-title">Book Your Appointment</h2>
+    <p class="section-sub">Fill in the form and we'll confirm shortly</p>
+    <form id="booking-form" class="panel">
+      <label for="service">Service</label>
+      <select id="service" required><option value="">Select a service</option></select>
+      <div class="row">
+        <div><label for="date">Date</label><input type="date" id="date" required></div>
+        <div><label for="time">Time</label><input type="time" id="time" min="08:00" max="19:00" required></div>
+      </div>
+      <label for="name">Full name</label>
+      <input id="name" required maxlength="80">
+      <div class="row">
+        <div><label for="phone">Phone / WhatsApp</label><input id="phone" type="tel" required maxlength="20"></div>
+        <div><label for="email">Email (optional)</label><input id="email" type="email" maxlength="120"></div>
+      </div>
+      <label for="notes">Notes (optional)</label>
+      <textarea id="notes" rows="3" maxlength="500"></textarea>
+      <button class="btn" type="submit" style="margin-top:18px;width:100%">Request Booking</button>
+      <div id="booking-msg" class="msg"></div>
+    </form>
+  </div>
+</section>
+
+<section id="contact" class="alt contact">
+  <div class="container">
+    <h2 class="section-title">Get in Touch</h2>
+    <p class="section-sub">We'd love to hear from you</p>
+    <div class="links">
+      <a id="wa-link" class="btn" target="_blank" rel="noopener">Chat on WhatsApp</a>
+      <a id="tel-link" class="btn outline"></a>
+      <a id="mail-link" class="btn outline"></a>
+    </div>
+  </div>
+</section>
+
+<footer><div class="container">&copy; <span id="yr"></span> Bremoh Beauty Glow. All rights reserved.</div></footer>
+<a id="wa-float" class="wa" target="_blank" rel="noopener" aria-label="WhatsApp">&#9742;</a>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="js/config.js"></script>
+<script src="js/app.js"></script>
+</body>
+</html>
