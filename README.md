@@ -56,6 +56,12 @@ You get an email and SMS for every new booking or order. Customers get a confirm
    For each: type **Supabase Edge Functions**, function `notify`, and add the HTTP header `x-webhook-secret` with the same value as `WEBHOOK_SECRET`.
 4. Resend only sends from `onboarding@resend.dev` to your own address until you verify a domain. Customer emails need a verified domain.
 
+## Keeping Supabase from pausing (automatic)
+Supabase free projects pause when idle. The file `.github/workflows/keepalive.yml` makes a tiny request to your project every 3 days, so you don't have to do anything. It reads the URL and anon key from `js/config.js`, so there is nothing extra to set up: fill in `config.js` and it works.
+- Check it under the repo's **Actions** tab (you can also tap **Run workflow** to test it). A red failure means the project needs attention, and GitHub will email you.
+- GitHub may switch scheduled jobs off after about 60 days with no repo activity. If so, open the Actions tab and re-enable it.
+- It's a good idea to export your bookings and orders occasionally as a backup.
+
 ## Shop notes
 - Prices and stock are checked on the server when an order is placed, so customers can't change prices from the browser.
 - Payment is not online. You contact the customer to confirm payment (M-Pesa, cash on delivery, etc.) and delivery. Online M-Pesa checkout can be added later.
