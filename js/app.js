@@ -1,5 +1,15 @@
 (function () {
   const C = window.BBG_CONFIG;
+  // Refresh or reopen the page: always start at the top, not where you left off
+  if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+  window.addEventListener("load", () => {
+    if (location.hash) history.replaceState(null, "", location.pathname + location.search);
+    window.scrollTo(0, 0);
+  });
+  // Tapping the logo reloads the app and goes to the top
+  document.addEventListener("click", (e) => {
+    if (e.target.closest(".hs-logo")) { e.preventDefault(); location.href = location.pathname; }
+  });
   const $ = (id) => document.getElementById(id);
   const money = (n) => `${C.CURRENCY} ${Number(n).toLocaleString()}`;
   const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
