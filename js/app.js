@@ -56,7 +56,8 @@
   async function loadGallery() {
     const { data } = await db.from("gallery").select("*").order("created_at", { ascending: false }).limit(12);
     const g = $("gallery-grid");
-    if (!data || !data.length) { g.closest("section").style.display = "none"; return; }
+    // If the database has no gallery photos yet, keep the photos already on the page.
+    if (!data || !data.length) return;
     g.innerHTML = data.map((i) => `<img src="${esc(i.image_url)}" alt="${esc(i.caption || "Bremoh Beauty Glow work")}" loading="lazy">`).join("");
   }
 
