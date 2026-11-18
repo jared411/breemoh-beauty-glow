@@ -7,6 +7,7 @@ A running log of what has been built and set up. Never put passwords or secret k
 - Admin: https://jared411.github.io/breemoh-beauty-glow/admin.html
 - Shop: https://jared411.github.io/breemoh-beauty-glow/shop.html
 - Repo: https://github.com/jared411/breemoh-beauty-glow
+- Vercel (connected by the owner): https://breemoh-beauty-glow.vercel.app/ (homepage checked and loads; admin on this address not yet confirmed)
 - Supabase project: njknqytgefgmgjljlgwe (keys are in js/config.js)
 
 ## Contact details on the site
@@ -35,6 +36,8 @@ A running log of what has been built and set up. Never put passwords or secret k
 6. Set the Supabase URL and publishable key in `js/config.js`.
 
 ## Not yet done
+- Confirm the admin login works on the Vercel address.
+- Confirm service cards show on the Vercel address (the check could not run the page's scripts).
 - Email and SMS alerts (Resend, Africa's Talking). Optional. Supabase Edge Function file is not in the repo any more, so it would need rebuilding.
 - Replace the admin login with breemohbeautyglow@gmail.com and remove the old one.
 - Confirm a test booking goes through.
