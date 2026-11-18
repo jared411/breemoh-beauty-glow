@@ -28,7 +28,11 @@
 
   async function loadServices() {
     const { data, error } = await db.from("services").select("*").eq("active", true).order("created_at");
-    if (error) { $("services-grid").innerHTML = '<p class="section-sub">Could not load services.</p>'; return; }
+    if (error) {
+      console.error("Services error:", error);
+      $("services-grid").innerHTML = `<p class="section-sub">Could not load services. (${String(error.message || error).replace(/[<>&]/g, "")})</p>`;
+      return;
+    }
     if (!data.length) { $("services-grid").innerHTML = '<p class="section-sub">Services coming soon.</p>'; return; }
 
     $("services-grid").innerHTML = data.map((s) => `
