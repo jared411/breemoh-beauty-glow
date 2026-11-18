@@ -13,35 +13,26 @@
 </head>
 <body>
 
-<header class="nav">
-  <div class="container">
-    <a href="#" class="logo"><img src="assets/logo.svg" alt="" width="36" height="36">Bremoh <span>Beauty Glow</span></a>
-    <nav>
-      <a href="#services">Services</a>
-      <a href="shop.html">Shop</a>
-      <a href="#gallery">Gallery</a>
-      <a href="#contact">Contact</a>
-      <a href="#book" class="btn small">Book Now</a>
-    </nav>
-  </div>
-</header>
-
-<section class="hero">
-  <div class="container">
-    <h1>Glow Like Never Before</h1>
-    <p>Premium beauty care tailored to you. Choose a service, pick a time, and we'll take care of the rest.</p>
-    <div class="actions">
-      <a href="#book" class="btn">Book an Appointment</a>
-      <a href="#services" class="btn outline">View Services</a>
-      <a href="shop.html" class="btn outline">Shop Products</a>
-    </div>
-  </div>
+<!-- Hero design. The text and logo are part of the image; the transparent
+     links on top make the logo, menu, WhatsApp icon and button work. -->
+<section class="brand-hero" id="top">
+  <img src="assets/hero.jpg" width="1145" height="1374" alt="Bremoh Beauty Glow. Professional nails, makeup and lashes, brought to your doorstep in Nairobi. Your beauty. Your glow. Our passion.">
+  <a class="hs hs-logo" href="#top" aria-label="Bremoh Beauty Glow, back to top"></a>
+  <a class="hs hs-home" href="#top" aria-label="Home"></a>
+  <a class="hs hs-services" href="#services" aria-label="Services"></a>
+  <a class="hs hs-gallery" href="#gallery" aria-label="Gallery"></a>
+  <a class="hs hs-about" href="#contact" aria-label="About us"></a>
+  <a class="hs hs-book" href="#book" aria-label="Book"></a>
+  <a class="hs hs-contact" href="#contact" aria-label="Contact"></a>
+  <a class="hs hs-wa" id="hero-wa" target="_blank" rel="noopener" aria-label="Chat on WhatsApp"></a>
+  <a class="hs hs-cta" href="#book" aria-label="Book your appointment"></a>
 </section>
 
 <section id="services">
   <div class="container">
     <h2 class="section-title">Our Services</h2>
     <p class="section-sub">Treatments designed to make you feel beautiful</p>
+    <p style="text-align:center;margin:-24px 0 32px"><a class="btn outline small" href="shop.html">Shop products</a></p>
     <div id="services-grid" class="grid"><p class="section-sub">Loading services...</p></div>
   </div>
 </section>
@@ -90,6 +81,14 @@
     </div>
   </div>
 </section>
+
+<nav class="mobile-bar" aria-label="Quick links">
+  <a href="#services">Services</a>
+  <a href="#gallery">Gallery</a>
+  <a href="shop.html">Shop</a>
+  <a href="#book">Book</a>
+  <a id="mobile-wa" target="_blank" rel="noopener">WhatsApp</a>
+</nav>
 
 <footer><div class="container">&copy; <span id="yr"></span> Bremoh Beauty Glow. All rights reserved.</div></footer>
 <a id="wa-float" class="wa" target="_blank" rel="noopener" aria-label="WhatsApp">&#9742;</a>

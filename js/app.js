@@ -9,6 +9,8 @@
   const waUrl = `https://wa.me/${C.WHATSAPP}?text=${encodeURIComponent("Hello Bremoh Beauty Glow, I'd like to book an appointment.")}`;
   $("wa-link").href = waUrl;
   $("wa-float").href = waUrl;
+  $("hero-wa").href = waUrl;
+  $("mobile-wa").href = waUrl;
   $("tel-link").href = `tel:${C.PHONE_DISPLAY.replace(/\s/g, "")}`;
   $("tel-link").textContent = C.PHONE_DISPLAY;
   $("mail-link").href = `mailto:${C.EMAIL}`;
