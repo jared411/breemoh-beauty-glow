@@ -12,11 +12,6 @@
   try { cart = JSON.parse(localStorage.getItem("bbg_cart") || "{}") || {}; } catch (e) { cart = {}; }
   const saveCart = () => { try { localStorage.setItem(CART_KEY, JSON.stringify(cart)); } catch (e) {} };
 
-  if (C.SUPABASE_URL.includes("YOUR-PROJECT")) {
-    $("products-grid").innerHTML = '<p class="section-sub">Site not connected yet. Add your Supabase keys in js/config.js.</p>';
-    return;
-  }
-  const db = supabase.createClient(C.SUPABASE_URL, C.SUPABASE_ANON_KEY);
 
   // ----- Drawer -----
   const openCart = () => { $("cart").classList.remove("hidden"); $("cart-overlay").classList.remove("hidden"); };
@@ -27,8 +22,9 @@
 
   // ----- Products -----
   async function loadProducts() {
-    const { data, error } = await db.from("products").select("*").eq("active", true).order("created_at");
-    if (error) { $("products-grid").innerHTML = '<p class="section-sub">Could not load products.</p>'; return; }
+    let data;
+    try { data = await api("/api/products"); }
+    catch (e) { $("products-grid").innerHTML = '<p class="section-sub">Could not load products.</p>'; return; }
     products = data;
     if (!data.length) { $("products-grid").innerHTML = '<p class="section-sub">Products coming soon.</p>'; return; }
 
@@ -115,23 +111,27 @@
     if (!items.length) return;
     btn.disabled = true;
 
-    const { error } = await db.rpc("place_order", {
-      p_name: $("c-name").value,
-      p_phone: $("c-phone").value,
-      p_email: $("c-email").value,
-      p_address: $("c-address").value,
-      p_items: items
-    });
-
-    btn.disabled = false;
-    if (error) {
+    try {
+      await api("/api/orders", {
+        method: "POST",
+        body: {
+          customer_name: $("c-name").value,
+          phone: $("c-phone").value,
+          email: $("c-email").value,
+          address: $("c-address").value,
+          items
+        }
+      });
+    } catch (error) {
+      btn.disabled = false;
       msg.className = "msg err";
-      msg.textContent = /stock|unavailable/i.test(error.message)
-        ? "Sorry, an item just went out of stock. Please review your cart."
+      msg.textContent = [400, 409, 429].includes(error.status)
+        ? error.message
         : "Sorry, we could not place your order. Please check your details or contact us on WhatsApp.";
       loadProducts();
       return;
     }
+    btn.disabled = false;
     cart = {}; saveCart(); e.target.reset();
     msg.className = "msg ok";
     msg.textContent = "Thank you! Your order was received. We'll contact you shortly.";
