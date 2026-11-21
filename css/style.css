@@ -126,3 +126,6 @@ td a{color:var(--lilac)}
   .mobile-bar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:30;background:#120a11;border-top:1px solid var(--line);justify-content:space-around;padding:12px 4px;box-shadow:0 -4px 16px rgba(0,0,0,.4)}
   .mobile-bar a{color:var(--lilac-soft);font-size:.8rem;text-align:center;flex:1}
 }
+
+/* Gallery collage: one picture */
+.gallery-collage img{width:100%;height:auto;display:block;border-radius:12px;border:1px solid var(--line)}
